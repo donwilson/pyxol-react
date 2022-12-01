@@ -2,25 +2,22 @@ import { Container, Row, Col } from "react-bootstrap";
 
 import Header from "../components/header";
 import Footer from "../components/footer";
-import ContactUsCTA from "../components/callToActions/contact_us";
 
-export default function Projects() {
+export default function Contact() {
 	
 	
 	return (
 		<>
 			<Header
-				title="Open Source Projects"
+				title="Contact Us"
 			/>
 			
 			<Container className="py-4">
 				<h1 className="h1 mb-4">
-					Projects
+					Contact Us
 				</h1>
 				
-				<p>Publicly available source code for some of our various projects.</p>
-				
-				<ContactUsCTA />
+				<p>@TODO form</p>
 			</Container>
 			
 			<Footer />

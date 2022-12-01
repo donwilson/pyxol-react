@@ -1,13 +1,22 @@
-import Link from 'next/link';
+import Head from 'next/head';
 
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import Container from 'react-bootstrap/Container';
 import Button from 'react-bootstrap/Button';
 
-export default function Header() {
+export default function Header({ title }) {
 	return (
 		<>
+			<Head>
+				<title>{`${title ?? "Build Great Things"} - pyxol`}</title>
+				<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+				<meta name="description" content="pyxol aims to create meaningful technology through web and software development." />
+				<link rel="icon" href="/favicon.ico" />
+				<meta name="theme-color" content="#343a40" />
+				<meta name="google-site-verification" content="AgfnDI9BToJX-7WJXnOqP8S00oYoHRBkIBBaQ8LOqD4" />
+			</Head>
+			
 			<Navbar
 				variant="dark"
 				bg="dark"
@@ -21,6 +30,7 @@ export default function Header() {
 					>
 						pyxol
 					</Navbar.Brand>
+					
 					<Button
 						variant="secondary"
 						href="/contact/"
@@ -28,30 +38,30 @@ export default function Header() {
 					>
 						Contact Us
 					</Button>
+					
 					<Navbar.Toggle
 						aria-controls="responsive-navbar-nav"
 						aria-label="Toggle navigation"
 						className="ml-2"
 					/>
 					
-					<Navbar.Collapse
-						id="responsive-navbar-nav"
-					>
+					<Navbar.Collapse id="responsive-navbar-nav">
 						<Nav>
-							<Nav.Link
-								href="/services/"
-							>
-								Services
-							</Nav.Link>
-							<Nav.Link
-								href="/projects/">
-								Projects
-							</Nav.Link>
-							<Nav.Link
-								href="/art/"
-							>
-								Art
-							</Nav.Link>
+							<Nav.Item className="py-2">
+								<Nav.Link href="/services/" className="d-block">
+									Services
+								</Nav.Link>
+							</Nav.Item>
+							<Nav.Item className="py-2">
+								<Nav.Link href="/projects/" className="d-block">
+									Projects
+								</Nav.Link>
+							</Nav.Item>
+							<Nav.Item className="py-2">
+								<Nav.Link href="/art/" className="d-block">
+									Art
+								</Nav.Link>
+							</Nav.Item>
 						</Nav>
 					</Navbar.Collapse>
 					

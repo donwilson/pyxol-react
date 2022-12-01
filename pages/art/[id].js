@@ -1,21 +1,19 @@
-import Head from "next/head";
+import Link from "next/link";
 
 import Container from "react-bootstrap/Container";
 
-import Header from "../components/header";
-import Footer from "../components/footer";
-import ContactUsCTA from "../components/callToActions/contact_us";
+import Header from "../../components/header";
+import Footer from "../../components/footer";
+import ContactUsCTA from "../../components/callToActions/contact_us";
 
 export default function ArtViewer({ id }) {
 	
 	
 	return (
 		<>
-			<Head>
-				<title>Art &rsaquo; {id} | Pyxol</title>
-			</Head>
-			
-			<Header />
+			<Header
+				title={`${id} - Art`}
+			/>
 			
 			<Container className="py-4">
 				<h1 className="h1 mb-4">

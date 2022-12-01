@@ -1,5 +1,3 @@
-import Head from "next/head";
-
 import Container from "react-bootstrap/Container";
 
 import Header from "../../components/header";
@@ -11,11 +9,9 @@ export default function Art() {
 	
 	return (
 		<>
-			<Head>
-				<title>Art | Pyxol</title>
-			</Head>
-			
-			<Header />
+			<Header
+				title="Art"
+			/>
 			
 			<Container className="py-4">
 				<h1 className="h1 mb-4">

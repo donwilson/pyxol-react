@@ -1,20 +1,32 @@
-import Head from 'next/head';
-
 import Header from '../components/header';
+import SkyParticlesAnimation from '../components/animation/sky_particles';
+
+import styles from "../styles/homepage.module.css";
 
 export default function Home() {
 	return (
 		<>
-			<Head>
-				<title>Build Great Things | pyxol</title>
-				<meta name="description" content="pyxol aims to create meaningful technology through web and software development." />
-				<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-				<link rel="icon" href="/favicon.ico" />
-				<meta name="theme-color" content="#343a40" />
-				<meta name="google-site-verification" content="AgfnDI9BToJX-7WJXnOqP8S00oYoHRBkIBBaQ8LOqD4" />
-			</Head>
+			<Header
+				title="Build Great Things"
+			/>
 			
-			<Header />
+			<div className={styles.lead}>
+				<SkyParticlesAnimation />
+				
+				<div className={styles.lead_title}>
+					<h1 className={styles.h1}>
+						Pyxol
+					</h1>
+					
+					<p className={styles.subheader}>
+						We aim to create meaningful technology
+					</p>
+				</div>
+			</div>
+			
+			<style global jsx>{`
+				body { background-color: #1b1b1b; }
+			`}</style>
 		</>
 	)
 }
