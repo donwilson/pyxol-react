@@ -1,19 +1,17 @@
+"use client";
+
 import Image from "next/image";
 
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap"
 
-import Header from "../components/header";
-import Footer from "../components/footer";
-import ContactUsCTA from "../components/callToActions/contact_us";
+import Header from "../../components/header";
+import Footer from "../../components/footer";
+import ContactUsCTA from "../../components/callToActions/contact_us";
 
-export default function Services() {
-	
-	
+export default function ServicesPage() {
 	return (
 		<>
-			<Header
-				title="Web Development Services"
-			/>
+			<Header />
 			
 			<Container className="py-4">
 				<h1 className="h1 mb-4">
@@ -48,5 +46,5 @@ export default function Services() {
 			
 			<Footer />
 		</>
-	);
+	)
 }

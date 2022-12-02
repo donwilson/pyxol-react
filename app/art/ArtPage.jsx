@@ -4,14 +4,10 @@ import Header from "../../components/header";
 import Footer from "../../components/footer";
 import ContactUsCTA from "../../components/callToActions/contact_us";
 
-export default function Art() {
-	
-	
+export default function ArtPage() {
 	return (
 		<>
-			<Header
-				title="Art"
-			/>
+			<Header />
 			
 			<Container className="py-4">
 				<h1 className="h1 mb-4">

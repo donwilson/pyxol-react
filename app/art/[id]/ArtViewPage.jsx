@@ -2,18 +2,14 @@ import Link from "next/link";
 
 import Container from "react-bootstrap/Container";
 
-import Header from "../../components/header";
-import Footer from "../../components/footer";
-import ContactUsCTA from "../../components/callToActions/contact_us";
+import Header from "../../../components/header";
+import Footer from "../../../components/footer";
+import ContactUsCTA from "../../../components/callToActions/contact_us";
 
-export default function ArtViewer({ id }) {
-	
-	
+export default function ArtViewPage({ id }) {
 	return (
 		<>
-			<Header
-				title={`${id} - Art`}
-			/>
+			<Header />
 			
 			<Container className="py-4">
 				<h1 className="h1 mb-4">

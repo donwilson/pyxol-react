@@ -1,3 +1,5 @@
+"use client";
+
 import { useEffect } from "react";
 
 import styles from "../../styles/animations/sky_particles.module.css";
@@ -155,11 +157,11 @@ export default function SkyParticlesAnimation() {
 			let desired_width = window.innerWidth;
 			let desired_height = window.innerHeight;
 			
-			console.log("desired_height(before)=", desired_height);
+			//console.log("desired_height(before)=", desired_height);
 			
 			desired_height -= navbar_el.offsetHeight;
 			
-			console.log("desired_height(after)=", desired_height);
+			//console.log("desired_height(after)=", desired_height);
 			
 			canvas_el.width = desired_width;
 			canvas_el.height = desired_height;

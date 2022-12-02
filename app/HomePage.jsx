@@ -1,14 +1,14 @@
-import Header from '../components/header';
-import SkyParticlesAnimation from '../components/animation/sky_particles';
+"use client";
 
-import styles from "../styles/homepage.module.css";
+import Header from "../components/header";
+import SkyParticlesAnimation from "../components/animation/sky_particles";
 
-export default function Home() {
+import styles from "./styles.module.css";
+
+export default function HomePage() {
 	return (
 		<>
-			<Header
-				title="Build Great Things"
-			/>
+			<Header />
 			
 			<div className={styles.lead}>
 				<SkyParticlesAnimation />
