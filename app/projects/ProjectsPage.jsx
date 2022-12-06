@@ -9,8 +9,6 @@ import Footer from "../../components/footer";
 import ContactUsCTA from "../../components/callToActions/contact_us";
 
 export default function ProjectsPage({ repos }) {
-	console.log("repos=", repos);
-	
 	return (
 		<>
 			<Header />
@@ -36,7 +34,7 @@ export default function ProjectsPage({ repos }) {
 												className="mb-4 shadow-sm"
 											>
 												<Card.Body>
-													<h3 class="h3">
+													<h3 className="h3">
 														{repo.name}
 													</h3>
 													
@@ -51,7 +49,9 @@ export default function ProjectsPage({ repos }) {
 																
 																{repo.language && repo.description ? (
 																	<>
-																		&ndash;
+																		<span className="mx-1">
+																			&ndash;
+																		</span>
 																	</>
 																):""}
 																
@@ -67,7 +67,7 @@ export default function ProjectsPage({ repos }) {
 															>
 																{repo.html_url ? (
 																	<Link
-																		href={repo.href}
+																		href={repo.html_url}
 																		target="_blank"
 																		className="btn btn-sm btn-secondary"
 																	>
