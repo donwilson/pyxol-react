@@ -1,5 +1,7 @@
 const fs = require('fs/promises');
 
+import { ts } from './time';
+
 function cleanupGitHubRepoEntry(repo_entry) {
 	let repo = {
 		'title': repo_entry.name,
@@ -9,7 +11,8 @@ function cleanupGitHubRepoEntry(repo_entry) {
 		'stargazers_count': repo_entry.stargazers_count,
 		'watchers_count': repo_entry.watchers_count,
 		'forks_count': repo_entry.forks_count,
-		'created_at': repo_entry.created_at
+		'created_at': repo_entry.created_at,
+		'fork': repo_entry.fork || false
 	};
 	
 	return repo;
@@ -79,15 +82,38 @@ async function _pullGithubRepos(username) {
 		}
 	} while(fetch_link);
 	
-	return repos;
+	return raw_repos;
 }
 
-function _sortRepos(unsorted_repos) {
-	let repos = unsorted_repos;
+function sortReposByDate(unsorted_repos) {
+	// sort repos by unsorted_repos[0].created_at DESC
+	unsorted_repos.sort((a, b) => {
+		let dateA = new Date(a.created_at);
+		let dateB = new Date(b.created_at);
+		
+		if(dateA < dateB) {
+			return 1;
+		} else if(dateB < dateA) {
+			return -1;
+		}
+		
+		return 0;
+	});
 	
-	// @TODO sort repos by unsorted_repos[0].created_at DESC
+	return unsorted_repos;
+}
+
+function sortReposByMostWatched(unsorted_repos) {
+	// sort repos by unsorted_repos[0].created_at DESC
+	unsorted_repos.sort((a, b) => {
+		if(a.watchers_count == b.watchers_count) {
+			return 0;
+		}
+		
+		return ((a.watchers_count < b.watchers_count)?1:-1);
+	});
 	
-	return repos;
+	return unsorted_repos;
 }
 
 function _cacheReposKey(username) {
@@ -100,11 +126,36 @@ function _cacheReposFilepath(username) {
 	return `./data/${key}.json`;
 }
 
+// check if file exists
+async function _cacheFileExists(filepath) {
+	//return !!(await fs.stat(filepath).catch(e => false));
+	try {
+		return await fs.stat(filepath).then(() => true).catch(() => false);
+	} catch(err) {
+		console.log("_cacheFileExists thrown err=", err);
+	}
+}
+
 async function _getCachedRepos(username, default_return=false) {
 	try {
 		const filepath = _cacheReposFilepath(username);
 		
-		let raw_cached_data = await fs.readFile(filepath);
+		const file_exists = await _cacheFileExists(filepath);
+		
+		if(!file_exists) {
+			throw "Cache file doesn't exist yet";
+		}
+		
+		console.log("attempting to read file");
+		
+		let raw_cached_data = await fs.readFile(filepath, (err, data) => {
+			if(err || !data) {
+				console.log("err=", err);
+				return false;
+			}
+			
+			return data;
+		});
 		
 		if(!raw_cached_data) {
 			throw "Empty cache data";
@@ -117,11 +168,15 @@ async function _getCachedRepos(username, default_return=false) {
 		// @TODO check cached_data.timestamp_created to invalidate
 		// @TODO use cached_data.data
 		
-		if(!cached_data || !cached_data.length) {
+		if(!cached_data || !cached_data.data) {
 			throw "empty file";
 		}
 		
-		return cached_data;
+		if(cached_data.expiry && (cached_data.expiry <= ts())) {
+			return default_return;
+		}
+		
+		return cached_data.data;
 	} catch(err) {
 		// do nothing
 		console.log("error reading existing file:", err);
@@ -130,17 +185,25 @@ async function _getCachedRepos(username, default_return=false) {
 	return default_return;
 }
 
-async function _setCachedRepos(username, repos) {
+async function _setCachedRepos(username, repos, expiry_seconds=86400) {
 	try {
 		const filepath = _cacheReposFilepath(username);
 		
 		console.log("Writing to", filepath);
 		
-		let save_data = JSON.stringify(repos);
+		if(isNaN(expiry_seconds)) {
+			expiry_seconds = (60 * 60 * 24);
+		}
 		
-		// @TODO format data for caching:
-		// @TODO use .timestamp_created to expire cache
-		// @TODO use .data to store cache data
+		const expiry_ts = (ts() + expiry_seconds);
+		
+		// format for cache object:
+		// expiry: timestamp for when cache can expire
+		// data: data to cache
+		let save_data = JSON.stringify({
+			expiry: expiry_ts,
+			data: repos
+		});
 		
 		await fs.writeFile(filepath, save_data, {
 			flag: "w"
@@ -157,17 +220,20 @@ export async function fetchGithubRepos(username) {
 	}
 	
 	// check if cached
-	const cached_data = _getCachedRepos(username);
+	const cached_data = await _getCachedRepos(username);
 	
 	if(false !== cached_data) {
+		//return sortReposByMostWatched(cached_data);
 		return cached_data;
 	}
 	
 	// fetch data
+	let repos = [];
+	
 	try {
 		let unsorted_repos = await _pullGithubRepos(username);
 		
-		const repos = _sortRepos(unsorted_repos);
+		repos = sortReposByMostWatched(unsorted_repos);
 		
 		//console.log("repos=", repos);
 		
@@ -175,7 +241,7 @@ export async function fetchGithubRepos(username) {
 			throw "repos array is empty, skipping write";
 		}
 		
-		_setCachedRepos(username, repos);
+		_setCachedRepos(username, repos, (60 * 60 * 24));
 	} catch(err) {
 		// do nothing
 		console.log("error while writing file:", err);

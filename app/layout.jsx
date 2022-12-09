@@ -1,3 +1,6 @@
+import Footer from "../components/footer";
+import Header from "../components/header";
+
 import "../styles/custom.scss";
 
 // Layouts must accept a children prop
@@ -5,7 +8,13 @@ import "../styles/custom.scss";
 export default function RootLayout({ children }) {
 	return (
 		<html lang="en">
-			<body>{children}</body>
+			<body>
+				<Header />
+				
+				{children}
+				
+				<Footer />
+			</body>
 		</html>
 	);
 }

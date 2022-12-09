@@ -189,7 +189,7 @@ export default function SkyParticlesAnimation() {
 			<canvas
 				id="sky_particles"
 				width="100%"
-				height="100%"
+				height="60%"
 				className={styles.sky_particles_canvas}
 			/>
 		</>

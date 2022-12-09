@@ -11,7 +11,6 @@ export default function Header({ title }) {
 	return (
 		<>
 			<Head>
-				<title>{`${title ?? "Build Great Things"} - pyxol`}</title>
 				<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 				<meta name="description" content="pyxol aims to create meaningful technology through web and software development." />
 				<link rel="icon" href="/favicon.ico" />
@@ -48,7 +47,9 @@ export default function Header({ title }) {
 					/>
 					
 					<Navbar.Collapse id="responsive-navbar-nav">
-						<Nav>
+						<Nav
+							defaultActiveKey="/"
+						>
 							<Nav.Item className="py-2">
 								<Nav.Link href="/services/" className="d-block">
 									Services

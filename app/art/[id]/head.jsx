@@ -1,7 +1,5 @@
 export default function Head({ id }) {
-	return (
-		<>
-			<title>{id} - Art | pyxol</title>
-		</>
-	)
+	return (<>
+		<title>{`${id} - Art | ${process.env.NEXT_PUBLIC_SITE_NAME}`}</title>
+	</>);
 }
