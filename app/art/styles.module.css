@@ -1,0 +1,18 @@
+.art_item {
+	position: relative;
+	display: block;
+}
+.art_item_title {
+	display: inline-block;
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	max-width: 80%;
+	padding: 6px 12px;
+	background-color: rgba(255, 255, 255, 0.9);
+	/* background-color: #fff; */
+	color: #303030;
+	font-weight: bold;
+	border-top: 1px solid #303030;
+	border-left: 1px solid #303030;
+}

@@ -34,3 +34,9 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# p5.js
+p5.*.js
+p5.*.min.js
+p5.min.js
+p5.js

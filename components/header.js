@@ -50,17 +50,17 @@ export default function Header({ title }) {
 						<Nav
 							defaultActiveKey="/"
 						>
-							<Nav.Item className="py-2">
+							<Nav.Item className="px-2">
 								<Nav.Link href="/services/" className="d-block">
 									Services
 								</Nav.Link>
 							</Nav.Item>
-							<Nav.Item className="py-2">
+							<Nav.Item className="px-2">
 								<Nav.Link href="/projects/" className="d-block">
 									Projects
 								</Nav.Link>
 							</Nav.Item>
-							<Nav.Item className="py-2">
+							<Nav.Item className="px-2">
 								<Nav.Link href="/art/" className="d-block">
 									Art
 								</Nav.Link>
