@@ -4,7 +4,7 @@ import Image from "next/image";
 
 import { Container, Row, Col } from "react-bootstrap"
 
-import ContactUsCTA from "../../components/callToActions/contact_us";
+//import ContactUsCTA from "../../components/callToActions/contact_us";
 
 export default function Services() {
 	return (<>
@@ -68,7 +68,7 @@ export default function Services() {
 					<h2 className="h3">
 						Next.js
 					</h2>
-					<p>A fast and upcoming web development framework that enables React-based web applications with server-side rendering and generated static websites.</p>
+					<p>A fast web development framework that enables React-based applications with server-side rendering and generated static websites. This very website is built using this technology.</p>
 				</Col>
 			</Row>
 			
@@ -217,7 +217,7 @@ export default function Services() {
 				</Col>
 			</Row>
 			
-			<ContactUsCTA />
+			{/*<ContactUsCTA />*/}
 		</Container>
 	</>);
 }

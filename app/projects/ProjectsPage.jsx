@@ -8,7 +8,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
 import ProjectCard from "./ProjectCard";
-import ContactUsCTA from "../../components/callToActions/contact_us";
+//import ContactUsCTA from "../../components/callToActions/contact_us";
 
 export default function ProjectsPage({ repos }) {
 	const defaultSortBy = "most_watched";
@@ -125,7 +125,7 @@ export default function ProjectsPage({ repos }) {
 				</Alert>
 			)}
 			
-			<ContactUsCTA />
+			{/*<ContactUsCTA />*/}
 		</Container>
 	</>);
 }

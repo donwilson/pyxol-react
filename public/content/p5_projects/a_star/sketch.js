@@ -182,7 +182,7 @@
 			
 			if(current === end) {
 				noLoop();
-				console.log("Iteration #"+ iter +": Found solution!");
+				//console.log("Iteration #"+ iter +": Found solution!");
 				
 				// start new board
 				window.setTimeout(function() {
@@ -229,7 +229,7 @@
 		} else {
 			// no solution
 			noLoop();
-			console.log("Iteration #"+ iter +": No solution!");
+			//console.log("Iteration #"+ iter +": No solution!");
 			
 			// start new board
 			window.setTimeout(function() {

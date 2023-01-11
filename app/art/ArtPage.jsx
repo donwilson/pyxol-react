@@ -2,8 +2,8 @@
 
 import { Alert, Row } from "react-bootstrap";
 import Container from "react-bootstrap/Container";
-import ContactUsCTA from "../../components/callToActions/contact_us";
 import ArtItem from "./ArtItem";
+//import ContactUsCTA from "../../components/callToActions/contact_us";
 
 export default function ArtPage({ art_items }) {
 	return(<>
@@ -36,7 +36,7 @@ export default function ArtPage({ art_items }) {
 				</Alert>
 			</>)}
 			
-			<ContactUsCTA />
+			{/*<ContactUsCTA />*/}
 		</Container>
 	</>);
 }

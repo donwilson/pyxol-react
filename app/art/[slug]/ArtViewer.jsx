@@ -4,26 +4,13 @@ import Link from "next/link";
 import Image from "next/image";
 
 import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
 
 import SyntaxHighlighter from "react-syntax-highlighter/dist/esm/default-highlight";
 import { dark } from "react-syntax-highlighter/dist/esm/styles/hljs";
 
-import ContactUsCTA from "../../../components/callToActions/contact_us";
-import { Nav, Tab } from "react-bootstrap";
+//import ContactUsCTA from "../../../components/callToActions/contact_us";
 
 export default function ArtViewer({ kind, title, image, readme, files }) {
-	let first_filename = false;
-	
-	if(files && files.length) {
-		for(let file in files) {
-			first_filename = file.file;
-			
-			break;
-		}
-	}
-	
 	return (<>
 		<Container className="py-4">
 			<h1 className="h1 mb-4">
@@ -46,6 +33,7 @@ export default function ArtViewer({ kind, title, image, readme, files }) {
 						width={image.width}
 						height={image.height}
 						alt={`Preview image for ${title}`}
+						priority
 					/>
 				</div>
 			</>):""}
@@ -66,54 +54,25 @@ export default function ArtViewer({ kind, title, image, readme, files }) {
 			</>):""}
 			
 			{files && files.length ? (<>
-				<Tab.Container id="left-tabs" defaultActiveKey={first_filename}>
-					<Row>
-						<Col xs="12" sm="3">
-							<Nav
-								variant="tabs"
-								className="flex-column"
+				{files.map(({ file, type, contents }) => {
+					return (
+						<div key={file}>
+							<h3 className="h3 mb-2">
+								{file}
+							</h3>
+							
+							<SyntaxHighlighter
+								language={type}
+								style={dark}
 							>
-								{files.map(({ file }) => {
-									return (
-										<Nav.Item
-											key={file}
-										>
-											<Nav.Link eventKey={file}>
-												{file}
-											</Nav.Link>
-										</Nav.Item>
-									);
-								})}
-							</Nav>
-						</Col>
-						<Col xs="12" sm="9">
-							<Tab.Content>
-								{files.map(({ file, type, contents }) => {
-									return (
-										<Tab.Pane
-											key={file}
-											eventKey={file}
-										>
-											<h3 class="h3 mb-2">
-												{file}
-											</h3>
-											
-											<SyntaxHighlighter
-												language={type}
-												style={dark}
-											>
-												{contents}
-											</SyntaxHighlighter>
-										</Tab.Pane>
-									);
-								})}
-							</Tab.Content>
-						</Col>
-					</Row>
-				</Tab.Container>
+								{contents}
+							</SyntaxHighlighter>
+						</div>
+					);
+				})}
 			</>):""}
 			
-			<ContactUsCTA />
+			{/*<ContactUsCTA />*/}
 		</Container>
 	</>);
 }

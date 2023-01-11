@@ -30,13 +30,13 @@ async function getData(slug) {
 		
 		// skip library files
 		if(file.match(/^(p5\.dom\.js|p5\.js)$/gi)) {
-			console.log("skipping", file);
+			//console.log("skipping", file);
 			continue;
 		}
 		
 		// only allow specific file types
 		if(!file.match(/\.(md|pde|js|html)$/gi)) {
-			console.log("skipping2", file);
+			//console.log("skipping2", file);
 			continue;
 		}
 		

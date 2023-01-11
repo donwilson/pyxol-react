@@ -223,7 +223,7 @@
 				
 				if(current === end) {
 					noLoop();
-					console.log("Found solution!");
+					//console.log("Found solution!");
 					
 					//// start new board
 					//window.setTimeout(function() {
@@ -270,7 +270,7 @@
 			} else {
 				// no solution
 				noLoop();
-				console.log("No solution!");
+				//console.log("No solution!");
 				
 				//// start new board
 				//window.setTimeout(function() {
@@ -343,7 +343,7 @@
 		
 		if(false !== grid_item) {
 			if(grid_item === start || grid_item === end) {
-				console.log("can't draw on this point");
+				//console.log("can't draw on this point");
 			} else {
 				grid_item.wall = true;
 			}

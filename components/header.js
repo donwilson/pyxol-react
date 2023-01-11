@@ -1,11 +1,15 @@
 "use client";
 
 import Head from 'next/head';
+import Link from 'next/link';
 
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import Container from 'react-bootstrap/Container';
 import Button from 'react-bootstrap/Button';
+
+import TwitterLogoIcon from './icons/twitter-logo';
+import GithubIcon from './icons/github-logo';
 
 export default function Header({ title }) {
 	return (
@@ -68,13 +72,23 @@ export default function Header({ title }) {
 						</Nav>
 					</Navbar.Collapse>
 					
-					<Button
-						variant="secondary"
-						href="/contact/"
+					<Link
+						href="https://www.twitter.com/donwilson"
+						target="_blank"
 						className="ml-auto d-none d-sm-inline-block"
 					>
-						Contact Us
-					</Button>
+						<TwitterLogoIcon />
+						<span className="sr-only">Contact Us on Twitter</span>
+					</Link>
+					
+					<Link
+						href="https://github.com/donwilson"
+						target="_blank"
+						className="ml-2 d-none d-sm-inline-block ml-3"
+					>
+						<GithubIcon />
+						<span className="sr-only">View Our GitHub</span>
+					</Link>
 				</Container>
 			</Navbar>
 		</>

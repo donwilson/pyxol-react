@@ -54,7 +54,7 @@ async function _pullGithubRepos(username) {
 			const ratelimit_remaining = headers.get('x-ratelimit-remaining');
 			
 			if(ratelimit_remaining <= 0) {
-				console.log("Exceeded ratelimit for GitHub, exiting early");
+				//console.log("Exceeded ratelimit for GitHub, exiting early");
 				
 				break;
 			}
@@ -132,7 +132,7 @@ async function _cacheFileExists(filepath) {
 	try {
 		return await fs.stat(filepath).then(() => true).catch(() => false);
 	} catch(err) {
-		console.log("_cacheFileExists thrown err=", err);
+		//console.log("_cacheFileExists thrown err=", err);
 	}
 }
 
@@ -146,11 +146,11 @@ async function _getCachedRepos(username, default_return=false) {
 			throw "Cache file doesn't exist yet";
 		}
 		
-		console.log("attempting to read file");
+		//console.log("attempting to read file");
 		
 		let raw_cached_data = await fs.readFile(filepath, (err, data) => {
 			if(err || !data) {
-				console.log("err=", err);
+				//console.log("err=", err);
 				return false;
 			}
 			
@@ -179,7 +179,7 @@ async function _getCachedRepos(username, default_return=false) {
 		return cached_data.data;
 	} catch(err) {
 		// do nothing
-		console.log("error reading existing file:", err);
+		//console.log("error reading existing file:", err);
 	}
 	
 	return default_return;
@@ -189,7 +189,7 @@ async function _setCachedRepos(username, repos, expiry_seconds=86400) {
 	try {
 		const filepath = _cacheReposFilepath(username);
 		
-		console.log("Writing to", filepath);
+		//console.log("Writing to", filepath);
 		
 		if(isNaN(expiry_seconds)) {
 			expiry_seconds = (60 * 60 * 24);
@@ -210,7 +210,7 @@ async function _setCachedRepos(username, repos, expiry_seconds=86400) {
 		});
 	} catch(err) {
 		// do nothing
-		console.log("error writing cache file:", err);
+		//console.log("error writing cache file:", err);
 	}
 }
 
@@ -244,7 +244,7 @@ export async function fetchGithubRepos(username) {
 		_setCachedRepos(username, repos, (60 * 60 * 24));
 	} catch(err) {
 		// do nothing
-		console.log("error while writing file:", err);
+		//console.log("error while writing file:", err);
 	}
 	
 	return repos;
