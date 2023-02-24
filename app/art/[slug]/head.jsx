@@ -1,4 +1,5 @@
 import { parseArtSlug, parseArtTitleFromFolderName } from "../../../lib/art";
+import DefaultHeadTags from "../../default-head-tags";
 
 export default function Head({ params }) {
 	if(!params.slug) {
@@ -12,6 +13,8 @@ export default function Head({ params }) {
 	const title = parseArtTitleFromFolderName(project_key);
 	
 	return (<>
+		<DefaultHeadTags />
+		
 		<title>{`Art - ${title} | ${process.env.NEXT_PUBLIC_SITE_NAME}`}</title>
 	</>);
 }

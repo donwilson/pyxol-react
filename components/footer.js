@@ -3,13 +3,20 @@
 import Container from "react-bootstrap/Container";
 
 export default function Footer() {
-	return (
-		<>
-			<Container className="py-4">
-				<div className="text-center text-muted">
-					pyxol &copy; 2022
+	let date = new Date();
+	const date_year = date.getFullYear();
+	
+	return (<>
+		<Container className="py-4">
+			<div className="d-flex flex-row justify-content-between">
+				<div className="text-muted">
+					pyxol &copy; {date_year}
 				</div>
-			</Container>
-		</>
-	)
+				
+				<div className="text-muted">
+					powered by next.js
+				</div>
+			</div>
+		</Container>
+	</>);
 }

@@ -1,6 +1,8 @@
 "use client";
 
+import { Container } from "react-bootstrap";
 import SkyParticlesAnimation from "../components/animation/sky_particles";
+import ServicesList from "./services/ServicesList";
 
 import styles from "./styles.module.css";
 
@@ -22,6 +24,12 @@ export default function Homepage() {
 					We aim to create meaningful technology
 				</p>
 			</div>
+		</div>
+		
+		<div className="py-4 bg-white">
+			<Container>
+				<ServicesList />
+			</Container>
 		</div>
 	</>);
 }

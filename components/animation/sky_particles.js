@@ -155,7 +155,7 @@ export default function SkyParticlesAnimation() {
 		
 		function SP_resizeCanvas() {
 			let desired_width = window.innerWidth;
-			let desired_height = window.innerHeight;
+			let desired_height = Math.round( (window.innerHeight / 2) );
 			
 			//console.log("desired_height(before)=", desired_height);
 			
@@ -189,7 +189,7 @@ export default function SkyParticlesAnimation() {
 			<canvas
 				id="sky_particles"
 				width="100%"
-				height="60%"
+				height="70%"
 				className={styles.sky_particles_canvas}
 			/>
 		</>
