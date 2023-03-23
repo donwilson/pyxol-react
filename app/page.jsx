@@ -6,7 +6,7 @@ import ServicesList from "./services/ServicesList";
 
 import styles from "./styles.module.css";
 
-export default function Homepage() {
+export default function Page() {
 	return (<>
 		<style global jsx>{`
 			body { background-color: #1b1b1b; }

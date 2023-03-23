@@ -1,9 +1,10 @@
 "use client";
 
-import { Alert, Row } from "react-bootstrap";
 import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Alert from "react-bootstrap/Alert";
+
 import ArtItem from "./ArtItem";
-//import ContactUsCTA from "../../components/callToActions/contact_us";
 
 export default function ArtPage({ art_items }) {
 	return(<>
@@ -35,8 +36,6 @@ export default function ArtPage({ art_items }) {
 					check back later for new art projects
 				</Alert>
 			</>)}
-			
-			{/*<ContactUsCTA />*/}
 		</Container>
 	</>);
 }

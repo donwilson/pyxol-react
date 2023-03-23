@@ -4,13 +4,10 @@ import Link from "next/link";
 import Image from "next/image";
 
 import Container from "react-bootstrap/Container";
+import FileSourceViewer from "./FileSourceViewer";
+import MarkdownViewer from "./MarkdownViewer";
 
-import SyntaxHighlighter from "react-syntax-highlighter/dist/esm/default-highlight";
-import { dark } from "react-syntax-highlighter/dist/esm/styles/hljs";
-
-//import ContactUsCTA from "../../../components/callToActions/contact_us";
-
-export default function ArtViewer({ kind, title, image, readme, files }) {
+export default function ArtViewer({ kind, title, image, readme, baseDir, files }) {
 	return (<>
 		<Container className="py-4">
 			<h1 className="h1 mb-4">
@@ -27,52 +24,32 @@ export default function ArtViewer({ kind, title, image, readme, files }) {
 			</h1>
 			
 			{image && image.url ? (<>
-				<div className="d-block mb-4">
+				<div className="d-block bg-dark text-center p-2 mb-4">
 					<Image
 						src={image.url}
 						width={image.width}
 						height={image.height}
 						alt={`Preview image for ${title}`}
+						className="img-fluid"
 						priority
 					/>
 				</div>
 			</>):""}
 			
 			{readme ? (<>
-				<h2 className="h4 mb-1">
-					Readme
-				</h2>
-				
-				<SyntaxHighlighter
-					language="markdown"
-					style={dark}
-				>
-					{readme}
-				</SyntaxHighlighter>
+				<MarkdownViewer
+					baseDir={baseDir}
+					parsedMarkdownHTML={readme}
+				/>
 				
 				<hr />
 			</>):""}
 			
 			{files && files.length ? (<>
 				{files.map(({ file, type, contents }) => {
-					return (
-						<div key={file}>
-							<h3 className="h3 mb-2">
-								{file}
-							</h3>
-							
-							<SyntaxHighlighter
-								language={type}
-								style={dark}
-							>
-								{contents}
-							</SyntaxHighlighter>
-						</div>
-					);
+					return (<FileSourceViewer key={file} file={file} type={type} contents={contents} />);
 				})}
 			</>):""}
-			
-			{/*<ContactUsCTA />*/}
 		</Container>
 	</>);
 }

@@ -1,9 +1,18 @@
-import { Suspense } from "react";
 import { getArtImageDetails, parseArtSlug, parseArtTitleFromFolderName } from "../../../lib/art";
+
+import { remark } from "remark";
+import html from "remark-html";
 
 import ArtViewer from "./ArtViewer";
 
 const fs = require("fs/promises");
+
+async function parseMarkdownContents(contents) {
+	const processedContent = await remark().use(html).process(contents);
+	const contentHtml = processedContent.toString();
+	
+	return contentHtml;
+}
 
 async function getData(slug) {
 	const { kind, project_key } = parseArtSlug(slug);
@@ -44,6 +53,8 @@ async function getData(slug) {
 			readme = await fs.readFile(filepath, {
 				encoding: "utf8"
 			});
+			
+			readme = await parseMarkdownContents(readme);
 		} else {
 			// check if directory
 			const filestat = await fs.stat(filepath);
@@ -78,18 +89,32 @@ async function getData(slug) {
 		title: title,
 		image: getArtImageDetails(kind, project_key),
 		readme: readme,
+		baseDir: base_dir,
 		files: files
 	}
+}
+
+export async function generateMetadata({ params }) {
+	let page_title = `Art | ${process.env.NEXT_PUBLIC_SITE_NAME}`;
+	
+	if(params.slug) {
+		const { project_key } = parseArtSlug(params.slug);
+		const art_item_title = parseArtTitleFromFolderName(project_key);
+		
+		page_title = `${art_item_title} Art | ${process.env.NEXT_PUBLIC_SITE_NAME}`;
+	}
+	
+	return {
+		'title': page_title
+	};
 }
 
 export default async function ArtViewPage({ params }) {
 	const art_details = await getData(params.slug);
 	
 	return (<>
-		<Suspense fallback={<p>Loading data...</p>}>
-			<ArtViewer
-				{...art_details}
-			/>
-		</Suspense>
+		<ArtViewer
+			{...art_details}
+		/>
 	</>);
 }

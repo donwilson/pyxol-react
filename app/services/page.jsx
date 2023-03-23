@@ -1,10 +1,12 @@
 "use client";
 
-import { Container, Row, Col } from "react-bootstrap"
+import Link from "next/link";
+
+import { Container } from "react-bootstrap"
 
 import ContactUsCTA from "../../components/callToActions/contact_us";
 import ServicesList from "./ServicesList";
-import ProgrammingLanguagesList from "./ProgrammingLanguagesList";
+import ToolsList from "./ToolsList";
 
 export default function Services() {
 	return (<>
@@ -21,7 +23,17 @@ export default function Services() {
 			
 			<hr />
 			
-			<ProgrammingLanguagesList />
+			<h2 className="h3 py-3">
+				Tools We Work With
+			</h2>
+			
+			<p>In addition to the services mentioned above, we also actively work with the following tools:</p>
+			
+			<ToolsList />
+			
+			<p className="text-muted py-2">
+				Special thanks to <Link href="https://www.vectorlogo.zone/logos/index.html" target="_blank" className="text-muted"><em>VectorLogo.zone</em></Link> for logo sources
+			</p>
 			
 			<ContactUsCTA />
 		</Container>

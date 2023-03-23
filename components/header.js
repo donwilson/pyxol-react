@@ -1,6 +1,5 @@
 "use client";
 
-import Head from 'next/head';
 import Link from 'next/link';
 
 import Nav from 'react-bootstrap/Nav';
@@ -12,14 +11,6 @@ import GithubIcon from './icons/github-logo';
 
 export default function Header({ title }) {
 	return (<>
-		<Head>
-			<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-			<meta name="description" content="pyxol aims to create meaningful technology through web and software development." />
-			<link rel="icon" href="/favicon.ico" />
-			<meta name="theme-color" content="#343a40" />
-			<meta name="google-site-verification" content="AgfnDI9BToJX-7WJXnOqP8S00oYoHRBkIBBaQ8LOqD4" />
-		</Head>
-		
 		<div className="bg-dark">
 			<Navbar
 				collapseOnSelect
@@ -72,6 +63,15 @@ export default function Header({ title }) {
 						</Nav.Item>
 					</Nav>
 				</Navbar.Collapse>
+				
+				
+				<Button
+					variant="secondary"
+					href="/contact/"
+					className="ml-auto d-none d-md-block mr-4"
+				>
+					Contact Us
+				</Button>
 				
 				<Link
 					href="https://www.twitter.com/donwilson"
