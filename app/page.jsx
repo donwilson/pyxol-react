@@ -3,6 +3,7 @@
 import { Container } from "react-bootstrap";
 import SkyParticlesAnimation from "../components/animation/sky_particles";
 import ServicesList from "./services/ServicesList";
+import ToolsList from "./services/ToolsList";
 
 import styles from "./styles.module.css";
 
@@ -29,6 +30,10 @@ export default function Page() {
 		<div className="py-4 bg-white">
 			<Container>
 				<ServicesList />
+				
+				<hr />
+				
+				<ToolsList />
 			</Container>
 		</div>
 	</>);

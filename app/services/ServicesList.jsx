@@ -172,7 +172,7 @@ export default function ServicesList() {
 				<h2 className="h3">
 					Cloud Architect
 				</h2>
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent malesuada pretium risus, et luctus urna luctus non. Nunc lectus elit, sollicitudin ut elementum at, commodo quis turpis. Nunc nec consectetur lectus. In non orci sit amet ligula gravida euismod. Vestibulum quam enim, pharetra eget lorem vel, tincidunt fringilla nibh. Fusce maximus a turpis eget fermentum. Aliquam hendrerit suscipit libero, nec rutrum quam viverra et. Vivamus vitae turpis in tellus semper sodales ut eu nibh. Phasellus feugiat erat leo, sit amet convallis mi rhoncus a. Integer pharetra nisl est, in efficitur lectus feugiat vitae. </p>
+				<p>Cloud orchestration is at the heart of most major businesses and it is imperative to not only use the right tools for the job, but to seemlessly guide data through the most cost efficient way possible.</p>
 			</Col>
 		</Row>
 		
@@ -200,7 +200,7 @@ export default function ServicesList() {
 				<h2 className="h3">
 					Docker
 				</h2>
-				<p>Containerizing service daemons provides rapid development prototyping, reliable systems design, and overall less headache with minimal performance overhead.</p>
+				<p>Containerizing service daemons provides developers with the ability to quickly design, prototype, test, and reliably debug software. Docker provides more control over OS/daemon versioning and leads to less time dealing with routine tasks. A vital tool, Docker creates less headache with minimal impact to performance.</p>
 			</Col>
 		</Row>
 		

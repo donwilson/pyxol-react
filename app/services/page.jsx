@@ -27,8 +27,6 @@ export default function Services() {
 				Tools We Work With
 			</h2>
 			
-			<p>In addition to the services mentioned above, we also actively work with the following tools:</p>
-			
 			<ToolsList />
 			
 			<p className="text-muted py-2">
