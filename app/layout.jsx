@@ -4,7 +4,7 @@ import "../styles/custom.scss";
 
 export const metadata = {
 	'title': `Build Great Things | ${process.env.NEXT_PUBLIC_SITE_NAME}`,
-	'description': "pyxol aims to create meaningful technology through web and software development.",
+	'description': "pyxol is creating meaningful technology through web and software development.",
 	'viewport': "width=device-width, initial-scale=1, shrink-to-fit=no",
 	'theme-color': "#343a40",
 	'google-site-verification': "AgfnDI9BToJX-7WJXnOqP8S00oYoHRBkIBBaQ8LOqD4"

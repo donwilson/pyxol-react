@@ -20,4 +20,4 @@ services:
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.${COMPOSE_PROJECT_NAME}-web.rule=Host(`${HOSTNAME_WEB}`)"
-      - "traefik.http.services.${COMPOSE_PROJECT_NAME}-web.loadbalancer.server.port=8500"
+      - "traefik.http.services.${COMPOSE_PROJECT_NAME}-web.loadbalancer.server.port=3000"

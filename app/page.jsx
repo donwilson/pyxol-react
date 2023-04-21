@@ -22,7 +22,7 @@ export default function Page() {
 				</h1>
 				
 				<p className={styles.subheader}>
-					We aim to create meaningful technology
+					Creating meaningful technology
 				</p>
 			</div>
 		</div>
