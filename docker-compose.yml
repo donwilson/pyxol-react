@@ -1,0 +1,21 @@
+version: '3.8'
+
+networks:
+  default:
+    name: gateway
+    external: true
+
+services:
+  web:
+    build:
+      context: ./.docker/web/
+      dockerfile: Dockerfile
+    stop_grace_period: 1s
+    restart: unless-stopped
+    expose:
+      - 80
+    env_file:
+      - ./.env
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.pyxol-web.rule=Host(`pyxol.com`)"

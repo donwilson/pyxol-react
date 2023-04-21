@@ -40,3 +40,6 @@ p5.*.js
 p5.*.min.js
 p5.min.js
 p5.js
+
+# yarn
+yarn.lock
