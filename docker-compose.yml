@@ -8,8 +8,7 @@ networks:
 services:
   web:
     build:
-      context: ./.docker/web/
-      dockerfile: Dockerfile
+      dockerfile: ./.docker/web/Dockerfile
     stop_grace_period: 1s
     restart: unless-stopped
     expose:
