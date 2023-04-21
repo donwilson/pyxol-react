@@ -17,4 +17,4 @@ services:
       - ./.env
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.pyxol-web.rule=Host(`pyxol.com`)"
+      - "traefik.http.routers.${COMPOSE_PROJECT_NAME}-web.rule=Host(`${HOSTNAME_WEB}`)"
