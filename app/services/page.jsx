@@ -29,8 +29,8 @@ export default function Services() {
 			
 			<ToolsList />
 			
-			<p className="text-muted py-2">
-				Special thanks to <Link href="https://www.vectorlogo.zone/logos/index.html" target="_blank" className="text-muted"><em>VectorLogo.zone</em></Link> for logo sources
+			<p className="text-muted py-2 text-center">
+				special thanks to <Link href="https://www.vectorlogo.zone/logos/index.html" target="_blank" className="text-muted font-weight-bold">VectorLogoZone</Link> for logo sources
 			</p>
 			
 			<ContactUsCTA />

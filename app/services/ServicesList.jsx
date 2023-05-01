@@ -27,7 +27,7 @@ export default function ServicesList() {
 					WordPress
 				</h2>
 				
-				<p>We have over 12 years of experience in WordPress custom development, fine tuning, PageSpeed improvements, and more. We also provide recovery for websites that have been hacked and other disaster situations. If your WordPress website has been hacked and it&apos;s no longer functioning as it should, we&apos;re able to quickly get the website back up and running. We also offer consultation for how to better secure your website, what and when to upgrade themes and plugins, and other improvements to speed up your WordPress-based website.</p>
+				<p>We have 12 years of experience in WordPress custom theme and plugin development, fine tuning, PageSpeed improvements, and more. We also provide recovery for websites that have been hacked and other disaster situations. If your WordPress website has been hacked and it&apos;s no longer functioning as it should, we&apos;re able to quickly get the website back up and running. We also offer consultation for how to better secure your website, what and when to upgrade themes and plugins, and other improvements to speed up your WordPress-based website.</p>
 			</Col>
 		</Row>
 		

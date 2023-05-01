@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-import { Row, Col, Card, CardColumns } from "react-bootstrap";
+import { Row, Col, Card, CardGroup } from "react-bootstrap";
 
 export default function ProgrammingLanguagesList() {
 	const toolsets = [
@@ -129,13 +129,13 @@ export default function ProgrammingLanguagesList() {
 			return (
 				<div
 					key={key}
-					className="p-3 mb-4 border rounded bg-light"
+					className="p-3 pb-0 mb-4 border rounded bg-light"
 				>
 					<h4 className="h4 mb-3">
 						{obj.title}
 					</h4>
 					
-					<CardColumns>
+					<Row>
 						{Object.entries(tools).sort().map(([key, title]) => {
 							let width = 120;
 							let height = 60;
@@ -145,53 +145,41 @@ export default function ProgrammingLanguagesList() {
 							}
 							
 							return (
-								<Card
-									key={key}
-								>
-									<Card.Img as="div">
-										<Image
-										src={`/images/services/tools/${key}.svg`}
-										width={width}
-										height={height}
-										alt={`Logo for ${title}`}
-										className="img-fluid"
-										style={{
-											width: "100%",
-											height: "auto"
-										}}
-									/>
-									</Card.Img>
-									<Card.Body className=" bg-secondary text-light">
-										<Card.Title
-											className="mb-0"
-										>
-											{title}
-										</Card.Title>
-									</Card.Body>
-								</Card>
-							);
-							
-							/*
 								<Col
+									xs={12}
+									sm={6}
+									md={4}
+									className="mb-3"
 									key={key}
-									sm="2"
-									className="text-center bg-light mb-2"
 								>
-									<Image
-										src={`/images/services/tools/${key}.svg`}
-										width={width}
-										height={height}
-										alt={`Logo for ${title}`}
-										className="img-fluid"
-										style={{
-											width: "100%",
-											height: "auto"
-										}}
-									/>
+									<Card
+										
+									>
+										<Card.Img as="div">
+											<Image
+											src={`/images/services/tools/${key}.svg`}
+											width={width}
+											height={height}
+											alt={`Logo for ${title}`}
+											className="img-fluid"
+											style={{
+												width: "100%",
+												height: "auto"
+											}}
+										/>
+										</Card.Img>
+										<Card.Body className=" bg-secondary text-light">
+											<Card.Title
+												className="mb-0"
+											>
+												{title}
+											</Card.Title>
+										</Card.Body>
+									</Card>
 								</Col>
-								*/
+							);
 						})}
-					</CardColumns>
+					</Row>
 				</div>
 			);
 		})}
