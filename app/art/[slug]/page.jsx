@@ -1,4 +1,4 @@
-import { getArtImageDetails, parseArtSlug, parseArtTitleFromFolderName } from "../../../lib/art";
+import { getArtItems, getArtImageDetails, parseArtSlug, parseArtTitleFromFolderName } from "../../../lib/art";
 
 import { remark } from "remark";
 import html from "remark-html";
@@ -107,6 +107,14 @@ export async function generateMetadata({ params }) {
 	return {
 		'title': page_title
 	};
+}
+
+export async function generateStaticParams() {
+	const art_items = await getArtItems();
+	
+	return art_items.map((art_item) => ({
+		slug: art_item.slug,
+	}))
 }
 
 export default async function ArtViewPage({ params }) {

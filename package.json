@@ -1,12 +1,13 @@
 {
   "name": "pyxol",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "prod": "next export"
   },
   "dependencies": {
     "bootstrap": "^4.6.2",
@@ -14,7 +15,7 @@
     "image-size": "^1.0.2",
     "lodash": "^4.17.21",
     "mailgun.js": "^8.2.1",
-    "next": "13.2.*",
+    "next": "13.*",
     "react": "18.2.0",
     "react-bootstrap": "1.6.*",
     "react-dom": "18.2.0",

@@ -1,15 +1,5 @@
 {
-  "task.allowAutomaticTasks": "on",
-  "editor.insertSpaces": false,
-  "editor.detectIndentation": false,
-  "files.exclude": {
-    "node_modules/**": true,
-    ".next/": true,
-    ".vscode/": false,
-    "package-lock.json": true
-  },
-  "editor.cursorStyle": "line",
-  "editor.multiCursorModifier": "ctrlCmd",
-  "typescript.tsdk": "node_modules/typescript/lib",
-  "typescript.enablePromptUseWorkspaceTsdk": true
+	"task.allowAutomaticTasks": "on",
+	"typescript.tsdk": "node_modules/typescript/lib",
+	"typescript.enablePromptUseWorkspaceTsdk": true
 }
