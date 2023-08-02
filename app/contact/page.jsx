@@ -1,7 +1,6 @@
 "use client";
 
 import Container from "react-bootstrap/Container";
-import ContactForm from "./ContactForm";
 
 export default function ContactPage() {
 	return (<>
@@ -10,7 +9,11 @@ export default function ContactPage() {
 				Contact Us
 			</h1>
 			
-			<ContactForm />
+			<div className="my-4 text-center">
+				<p>If you would like to  or get a quote on a project, please email us at the address below.</p>
+				
+				<p><a href="mailto:contact&#64;pyxol&#46;com" class="btn btn-secondary">contact&#64;pyxol&#46;com</a></p>
+			</div>
 		</Container>
 	</>);
 }

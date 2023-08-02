@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "prod": "next export"
+    "http-serve": "http-server dist",
+    "s3-push": "s3cmd sync --no-mime-magic --guess-mime-type -r --delete-removed dist/ s3://pyxol.com/"
   },
   "dependencies": {
     "bootstrap": "^4.6.2",
@@ -29,6 +30,7 @@
   "devDependencies": {
     "@types/node": "18.15.3",
     "eslint": "8.28.0",
-    "eslint-config-next": "13.0.5"
+    "eslint-config-next": "13.0.5",
+    "http-server": "*"
   }
 }

@@ -152,26 +152,22 @@ export default function ProgrammingLanguagesList() {
 									className="mb-3"
 									key={key}
 								>
-									<Card
-										
-									>
+									<Card>
 										<Card.Img as="div">
 											<Image
-											src={`/images/services/tools/${key}.svg`}
-											width={width}
-											height={height}
-											alt={`Logo for ${title}`}
-											className="img-fluid"
-											style={{
-												width: "100%",
-												height: "auto"
-											}}
-										/>
+												src={`/images/services/tools/${key}.svg`}
+												width={width}
+												height={height}
+												alt={`Logo for ${title}`}
+												className="img-fluid"
+												style={{
+													width: "100%",
+													height: "auto"
+												}}
+											/>
 										</Card.Img>
-										<Card.Body className=" bg-secondary text-light">
-											<Card.Title
-												className="mb-0"
-											>
+										<Card.Body className="bg-secondary text-light">
+											<Card.Title className="mb-0">
 												{title}
 											</Card.Title>
 										</Card.Body>

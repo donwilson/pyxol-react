@@ -11,6 +11,13 @@ module.exports = {
 		appDir: true,
 	},
 	
+	images: {
+		unoptimized: true,
+	},
+	
 	// required for Docker
-	output: 'standalone',
+	//output: 'standalone',
+	
+	output: 'export',
+	distDir: 'dist',
 };
